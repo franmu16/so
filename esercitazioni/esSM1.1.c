@@ -25,6 +25,8 @@ int main() {
         // Attach shared memory
         child_process(segment_id);
         // Detach shared memory
+        shmdt(v);
+        // Important! Shared Memory deallocation
         shmctl(segment_id, IPC_RMID, NULL);
         return 0;
     } else {
