@@ -25,7 +25,7 @@ int main() {
         // Attach shared memory
         child_process(segment_id);
         // Detach shared memory
-
+        shmctl(segment_id, IPC_RMID, NULL);
         return 0;
     } else {
         // Father process
