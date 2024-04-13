@@ -28,7 +28,7 @@ int main(int argc, char* argv[]){
     int i;
     close(fd1[0]);
     char* test[SIZE];
-    strncpy(test, data.str, SIZE);
+    //strncpy(test, data.str, SIZE);
     int fd2[2];
     int rval=pipe(fd2);
     if(rval<0){
@@ -47,28 +47,35 @@ int main(int argc, char* argv[]){
       data.str[len-i-1]=tmp; 
     }
     int sent = write(fd1[1], &data,  sizeof(data));
+    if(sent<sizeof(shared_data))
+      printf("Errore nell'invio");
+    }
     int sent = write(fd2[1], &data,  sizeof(data));
     if(sent<sizeof(shared_data))
       printf("Errore nell'invio");
     }
     if(pid2>0){
-      close(fd2[1]);
       char* t1[SIZE];
       char* t2[SIZE];
-      int rcv = read(fd2[0], t, sizeof(data));
+      wait (NULL);
+      int rcv = read(fd1[0], t1, sizeof(data));
+      if(rcv<sizeof(shared_data))
+        printf("Errore in ricezione");
+      rcv = read(fd2[0], t2, sizeof(data));
+      if(rcv<sizeof(shared_data))
+        printf("Errore in ricezione");
       if(strcmp(t1,t2)==0)
-        printf("Stringa palindroma");
+        printf("Stringa palindroma\n");
       else
-        printf("Stringa non palindroma");
+        printf("Stringa non palindroma\n");
     }
-  }
   else if(pid>0){
     close(fd1[1]);
     shared_data d;
     int received = read(fd1[0], &d, sizeof(data));
     if(received<sizeof(shared_data))
       printf("Errore in ricezione");
-    printf("%s", d.str);
+    printf("%s\n", d.str);
     close(fd1[0]);
   }
 }
