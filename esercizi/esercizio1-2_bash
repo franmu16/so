@@ -1,0 +1,13 @@
+touch ./esercizi/tutorato.txt
+mkdir ~../fold_2a
+cd ..
+ls fold_1 fold_2
+
+ln tutorato.txt tutorato_hard.txt
+cd ..
+ln -s fold_1/tutorato.txt fold_3/tutorato_sym.txt   ??
+#se cancello tutorato.txt potrò continuare ad accedervi tramite l'hard link poichè creando un hard link si crea un link all'i-node originale mentre nel link simbolico nell'i-node vi è un collegamento al file e alla sua eliminazione divanta un collegamento "pendente"
+rm -r fold_1
+rm ./fold_3/tutorato_sym.txt
+
+
