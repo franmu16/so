@@ -1,0 +1,117 @@
+#!/bin/bash
+if (($#!=1)); then
+	echo "Bisogna passare un solo parametro"
+	exit 1
+fi
+echo "File con all'interno il nome $1:"
+r="$(find . -type f -name "*$1*")"
+echo "$r"
+echo "Numero file: $(find . -type f -name "*$1*" | wc -l)"
+echo "Numero righe per file con parola tutto: "
+for row in $r; do
+	echo "$(cat $row | grep "tutto"| wc -l)"
+done 
+exit 0
+#!/bin/bash
+if (($#!=1)); then
+	echo "Bisogna inserire una directory"
+	exit 1
+fi
+cd $1
+r=$(find . -type f -name "*[[:upper:]]*")
+for file in $r; do
+	newname=$(echo "$file" | tr A-Z a-z)
+	mv $file $newname
+done
+exit 0
+nel mezzo del cammin di nostra vita 
+mi ritrovai in una selva oscura
+la cui diritta via era sparrita
+la nebbia agli irti colli
+piovigginando sale e sopra il maestrale
+urla e biancheggia il mare
+ciao giacomo, qui tutto ok, 
+la via la stanno rifacendo
+e i colli sempre gli stessi
+qui la vita tutto ok, 
+il sale tutto bene
+
+27 27 29 30
+#!/bin/bash
+if (($#!=1)); then
+	echo "Bisogna passare un solo parametro"
+	exit 1
+fi
+echo "File con all'interno il nome $1:"
+r="$(find . -type f -name "*$1*")"
+echo "$r"
+echo "Numero file: $(find . -type f -name "*$1*" | wc -l)"
+echo "Numero righe per file con parola tutto: "
+for row in $r; do
+	echo "$(cat $row | grep "tutto"| wc -l)"
+done 
+exit 0
+#!/bin/bash
+if (($#!=1)); then
+	echo "Bisogna inserire una directory"
+	exit 1
+fi
+cd $1
+r=$(find . -type f -name "*[[:upper:]]*")
+for file in $r; do
+	newname=$(echo "$file" | tr A-Z a-z)
+	mv $file $newname
+done
+exit 0
+nel mezzo del cammin di nostra vita 
+mi ritrovai in una selva oscura
+la cui diritta via era sparrita
+la nebbia agli irti colli
+piovigginando sale e sopra il maestrale
+urla e biancheggia il mare
+ciao giacomo, qui tutto ok, 
+la via la stanno rifacendo
+e i colli sempre gli stessi
+qui la vita tutto ok, 
+il sale tutto bene
+
+27 27 29 30
+#!/bin/bash
+if (($#!=1)); then
+	echo "Bisogna passare un solo parametro"
+	exit 1
+fi
+echo "File con all'interno il nome $1:"
+r="$(find . -type f -name "*$1*")"
+echo "$r"
+echo "Numero file: $(find . -type f -name "*$1*" | wc -l)"
+echo "Numero righe per file con parola tutto: "
+for row in $r; do
+	echo "$(cat $row | grep "tutto"| wc -l)"
+done 
+exit 0
+#!/bin/bash
+if (($#!=1)); then
+	echo "Bisogna inserire una directory"
+	exit 1
+fi
+cd $1
+r=$(find . -type f -name "*[[:upper:]]*")
+for file in $r; do
+	newname=$(echo "$file" | tr A-Z a-z)
+	mv $file $newname
+done
+exit 0
+nel mezzo del cammin di nostra vita 
+mi ritrovai in una selva oscura
+la cui diritta via era sparrita
+la nebbia agli irti colli
+piovigginando sale e sopra il maestrale
+urla e biancheggia il mare
+ciao giacomo, qui tutto ok, 
+la via la stanno rifacendo
+e i colli sempre gli stessi
+qui la vita tutto ok, 
+il sale tutto bene
+
+27 27 29 30
